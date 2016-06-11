@@ -18,5 +18,6 @@ public class Exercicio2Ponto {
 		  System.out.println("Localizacao inicio ("+ inicio.coordenateX+ ","+inicio.coordenateY + ")");
 		  System.out.println("Localizao fim (" + fim.coordenateX + ","+ fim.coordenateY + ")");
 		  
+		  
 	   }
 }
