@@ -3,7 +3,7 @@ package modulo1;
 public class NumeroPrimo {
 
 	public static void main(String[] args) {
-		int number = 7;
+		int number = 3;
 		
 		boolean isPrimeNumber = true;
 	
