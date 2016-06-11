@@ -12,7 +12,7 @@ public class Fatorial {
 			fatorialValue = fatorialValue  * i ;
 			i--;
 		}
-		
+	
 		System.out.println("Fatorial de "+ numberToGetFatorial + " :"+ fatorialValue);
 		
 
