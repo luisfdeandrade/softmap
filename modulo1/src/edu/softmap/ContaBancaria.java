@@ -36,5 +36,9 @@ public class ContaBancaria {
 		return this.balance;
 	}
 	
+	public void setSpecial(boolean value) {
+		this.special = value;
+	}
+	
 
 }
