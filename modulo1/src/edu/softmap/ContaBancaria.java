@@ -2,26 +2,34 @@ package edu.softmap;
 
 public class ContaBancaria {
 	
-	private String customerName;
-	private int number;
+	private ClienteBanco customer;
 	private double balance;
 	private boolean special;
 	private double limit = 1000;
 	
-	public ContaBancaria(String customerName, int number, boolean special) {
-		this.customerName = customerName;
-		this.number       = number;
+	public ContaBancaria(ClienteBanco customer, boolean special) {
+		this.customer     = customer; 
 		this.special      = special;
 		this.balance      = 0;
 	}
 	
-	public void withdrawal(double value ) {
+	public void setSpecial(boolean value) {
+		this.special = value;
+	}
 	
+	public double getBalance() {
+		return this.balance;
+	}
+	
+	public ClienteBanco getCustomer() {
+		return this.customer;
+	}
+	
+	public void withdrawal(double value ) {
 		if ( value <= this.balance) 
 			 this.balance-= value;
 		else if( this.special == true &&( value <= this.balance + this.limit ) )
-			this.balance-= value;
-		
+			this.balance-= value;	
 	}
 	
 	
@@ -32,13 +40,8 @@ public class ContaBancaria {
 		this.balance+= valueOfDeposit;
 	}
 	
-	public double getBalance() {
-		return this.balance;
-	}
+
 	
-	public void setSpecial(boolean value) {
-		this.special = value;
-	}
 	
 
 }
