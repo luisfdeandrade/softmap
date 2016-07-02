@@ -1,4 +1,4 @@
-package edu.softmap;
+package auto.eletrico;
 
 public class Lampada {
 	

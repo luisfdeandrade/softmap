@@ -1,6 +1,6 @@
 package modulo1;
 
-import edu.softmap.Lampada;
+import auto.eletrico.*;
 
 public class LigarLampada {
 
