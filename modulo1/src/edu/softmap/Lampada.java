@@ -3,6 +3,10 @@ package edu.softmap;
 public class Lampada {
 	
 	private boolean status;
+	
+	public Lampada( ) {
+		this.status = true;
+	}
 		
 	public void turnOn() {
 		this.status = true;
@@ -14,5 +18,9 @@ public class Lampada {
 	
 	public boolean getStatus() {
 		return this.status;
+	}
+	
+	public String getStatusDescription() {
+		return (this.getStatus()) ? "Ligado" : "Desligado";
 	}
 }
