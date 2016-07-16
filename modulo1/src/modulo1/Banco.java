@@ -24,10 +24,21 @@ public class Banco {
 		
 		for(int i = 0; i < contas.length; i++ ) {
 			
+		
 			System.out.println(contas[i].getCustomer().getCustomerName());
-			contas[i].deposit(200);
 			System.out.println("Saldo Inicial: "+ contas[i].getBalance());
-			contas[i].withdrawal(1100);
+			try {
+				contas[i].deposit(-200);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+			
+			try {
+				contas[i].withdrawal(1100);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+			
 			System.out.println("Saldo Final: "+ contas[i].getBalance());
 		}
 		

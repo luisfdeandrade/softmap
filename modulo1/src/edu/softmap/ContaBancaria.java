@@ -1,5 +1,8 @@
 package edu.softmap;
 
+import erros.DepositoInvalidoException;
+import erros.EstouroSaqueException;
+
 public class ContaBancaria {
 	
 	private ClienteBanco customer;
@@ -18,9 +21,11 @@ public class ContaBancaria {
 		return this.customer;
 	}
 	
-	public void withdrawal(double value ) {
+	public void withdrawal(double value ) throws EstouroSaqueException  {
 		if ( temsaldo(value)) 
 			 this.balance-= value;
+		else
+			throw new EstouroSaqueException("O valor do saque é maior do que o valor disponível em conta");
 	}
 
 	private boolean temsaldo(double value) {
@@ -28,9 +33,11 @@ public class ContaBancaria {
 	}
 	
 	
-	public void deposit( double valueOfDeposit ) {
+	public void deposit( double valueOfDeposit ) throws DepositoInvalidoException {
+		
+	
 		if (valueOfDeposit <= 0)
-			return;
+			throw new DepositoInvalidoException("O valor é inválido para depósito");
 		
 		this.balance+= valueOfDeposit;
 	}
