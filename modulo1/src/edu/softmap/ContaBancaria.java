@@ -3,18 +3,11 @@ package edu.softmap;
 public class ContaBancaria {
 	
 	private ClienteBanco customer;
-	private double balance;
-	private boolean special;
-	private double limit = 1000;
+	protected double balance;
 	
-	public ContaBancaria(ClienteBanco customer, boolean special) {
+	public ContaBancaria(ClienteBanco customer) {
 		this.customer     = customer; 
-		this.special      = special;
 		this.balance      = 0;
-	}
-	
-	public void setSpecial(boolean value) {
-		this.special = value;
 	}
 	
 	public double getBalance() {
@@ -26,10 +19,12 @@ public class ContaBancaria {
 	}
 	
 	public void withdrawal(double value ) {
-		if ( value <= this.balance) 
+		if ( temsaldo(value)) 
 			 this.balance-= value;
-		else if( this.special == true &&( value <= this.balance + this.limit ) )
-			this.balance-= value;	
+	}
+
+	private boolean temsaldo(double value) {
+		return value <= this.balance;
 	}
 	
 	

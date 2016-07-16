@@ -3,18 +3,35 @@ package modulo1;
 
 import edu.softmap.ClienteBanco;
 import edu.softmap.ContaBancaria;
+import edu.softmap.ContaEspecial;
+import edu.softmap.ContaSimples;
 
 public class Banco {
 
 	public static void main(String[] args) {
 		
-		ClienteBanco  customer        = new ClienteBanco("NOME DO CLIENTE", 1);
-		ContaBancaria customerAccount = new ContaBancaria( customer, false);
+		ContaBancaria contas[] = null;
+		contas = new ContaBancaria[2];
 		
-		customerAccount.deposit(200);
-		System.out.println("Saldo Inicial: "+ customerAccount.getBalance());
-		customerAccount.withdrawal(1200);
-		System.out.println("Saldo Final: "+ customerAccount.getBalance());
+		ClienteBanco  customer        = new ClienteBanco("NOME DO CLIENTE PADRAO", 1);
+		ContaSimples customerStandard = new ContaSimples( customer);
+		
+		ClienteBanco  customer2        = new ClienteBanco("NOME DO CLIENTE STARDAND", 1);
+		ContaEspecial customerPremium = new ContaEspecial( customer2, 1000);
+		
+		contas[0] = customerStandard;
+		contas[1] = customerPremium;
+		
+		for(int i = 0; i < contas.length; i++ ) {
+			
+			System.out.println(contas[i].getCustomer().getCustomerName());
+			contas[i].deposit(200);
+			System.out.println("Saldo Inicial: "+ contas[i].getBalance());
+			contas[i].withdrawal(1100);
+			System.out.println("Saldo Final: "+ contas[i].getBalance());
+		}
+		
+		
 	}
 
 }
